@@ -62,7 +62,7 @@ export default createStore<State>({
     decrementProductAmount(state,payload){
       state.productsInCart.filter((product: any) => product === payload && payload.amount > 0 ? product.amount-- : null)
     },
-    updateValue(state, payload){
+    updateProductAmount(state, payload){
       state.productsInCart.filter((product: any) => product === payload.product && payload.amount > 0 ? product.amount = payload.value : null)
     }
   },
@@ -77,6 +77,8 @@ export default createStore<State>({
       commit ("decrementProductAmount", product)
     },
     updateValue({commit},{value, product}: {value: number, product: object}){
+      console.log('value',value);
+      console.log('product', product)
       const data = {value, product}
       commit("updateProductAmount",data)
     }
