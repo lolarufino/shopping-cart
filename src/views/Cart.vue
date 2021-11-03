@@ -4,6 +4,7 @@
       <div v-for="product in productsInCart" class="product">
         <img class="product-image" :src="product.image" :alt="product.id" />
         <p class="product-name">{{ product.name }}</p>
+        <span>{{ product.price }}€/100g</span>
         <div class="amount">
           <p>
             Quantity:
@@ -16,7 +17,7 @@
               type="number"
               class="input"
               :value="product.amount"
-              @change="updateValue(value, product)"
+              @input="updateValue($event.target, { name: 'Lola' })"
             />
             <font-awesome-icon
               class="product-addtocart"
@@ -25,6 +26,11 @@
             />
           </p>
         </div>
+        <font-awesome-icon
+          class="product-delete"
+          :icon="['fas', 'trash-alt']"
+          @click=""
+        />
       </div>
       <p>Total: {{ updateFinalPrice() }} €</p>
     </div>
@@ -69,7 +75,7 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 55vw;
+    width: 70vw;
     .product-image {
       width: 150px;
     }
@@ -94,6 +100,15 @@ export default defineComponent({
         width: 50px;
         border: 1px solid lightgray;
         text-align: center;
+      }
+    }
+    .product-delete {
+      color: $maincolor;
+      transition: all 300ms ease-in-out;
+      cursor: pointer;
+      &:hover {
+        color: red;
+        transform: scale(1.2);
       }
     }
   }
