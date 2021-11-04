@@ -64,6 +64,9 @@ export default createStore<State>({
     },
     updateProductAmount(state, payload){
       state.productsInCart.filter((product: any) => product === payload.product && payload.amount > 0 ? product.amount = payload.value : null)
+    },
+    deleteProduct(state, payload){
+      state.productsInCart = state.productsInCart.filter((product: any) => product.id !== payload.id)
     }
   },
   actions: {
@@ -76,11 +79,13 @@ export default createStore<State>({
     decrementAmount({commit},product: object){
       commit ("decrementProductAmount", product)
     },
-    updateValue({commit},{value, product}: {value: number, product: object}){
-      console.log('value',value);
-      console.log('product', product)
-      const data = {value, product}
-      commit("updateProductAmount",data)
+    updateValue({commit},product: any){
+      console.log('product', product);
+      console.log('amount',product.amount)
+      commit("updateProductAmount",product)
+    },
+    deleteProductFromCart({commit}, product:any){
+      commit("deleteProduct", product)
     }
   },
   modules: {
