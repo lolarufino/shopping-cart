@@ -9,7 +9,7 @@
       </p>
       <img
         class="home-image"
-        src="https://i.ibb.co/kMM9DjP/animation-500-kvgkn43t.gif"
+        src="https://i.ibb.co/sRbdSpZ/animation-640-kvl3dijl.gif"
         alt="Teapot gif"
       />
     </div>
@@ -32,11 +32,13 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #efe7dfff;
   .text {
     font-family: $bodyfont;
     font-size: 20px;
     text-align: center;
     padding: 60px;
+    color: gray;
   }
   .home-image {
     width: 450px;

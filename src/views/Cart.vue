@@ -1,6 +1,6 @@
 <template>
   <transition name="fade" mode="out-in" appear>
-    <div class="cart-container">
+    <div v-if="productsInCart.length > 0" class="cart-container">
       <div v-for="product in productsInCart" class="product">
         <img class="product-image" :src="product.image" :alt="product.id" />
         <p class="product-name">{{ product.name }}</p>
@@ -40,6 +40,14 @@
         />
       </div>
       <p>Total: {{ updateFinalPrice() }} €</p>
+    </div>
+    <div v-else class="cart-container">
+      <p>Your cart is empty</p>
+      <img
+        class="empty-image"
+        src="https://i.ibb.co/brrFbPx/animation-640-kvl3lwfx.gif"
+        alt="Empty cart"
+      />
     </div>
   </transition>
 </template>
@@ -83,6 +91,8 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: #efe7dfff;
+  color: gray;
   .product {
     display: flex;
     justify-content: space-between;
@@ -90,8 +100,6 @@ export default defineComponent({
     width: 70vw;
     .product-image {
       width: 150px;
-    }
-    .product-name {
     }
     .amount {
       display: flex;
@@ -123,6 +131,9 @@ export default defineComponent({
         transform: scale(1.2);
       }
     }
+  }
+  .empty-image {
+    width: 30vw;
   }
 }
 .fade-enter-active,

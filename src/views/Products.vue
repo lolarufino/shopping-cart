@@ -3,13 +3,17 @@
     <div class="products-container">
       <div v-for="product in products" class="product">
         <img class="product-image" :src="product.image" :alt="product.id" />
-        <p class="product-name">{{ product.name }}</p>
-        <span class="product-price">{{ product.price }} €/100g</span>
-        <font-awesome-icon
-          class="product-addtocart"
-          :icon="['fas', 'shopping-cart']"
-          @click="this.addProductToCart(product)"
-        />
+        <div class="footer-product">
+          <div class="footer-text">
+            <p class="product-name">{{ product.name }}</p>
+            <span class="product-price">{{ product.price }} €/100g</span>
+          </div>
+          <font-awesome-icon
+            class="product-addtocart"
+            :icon="['fas', 'shopping-cart']"
+            @click="this.addProductToCart(product)"
+          />
+        </div>
       </div>
     </div>
   </transition>
@@ -36,6 +40,8 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: #efe7dfff;
+  color: gray;
   .product {
     display: flex;
     flex-direction: column;
@@ -43,24 +49,41 @@ export default defineComponent({
     font-family: $bodyfont;
     font-size: 20px;
     margin: 30px;
+    border: 2px dotted $terciarycolor;
+    background-color: white;
+    padding-bottom: 20px;
+    border-radius: 55px;
     .product-image {
-      width: 350px;
+      width: 330px;
       margin-bottom: 10px;
+      border-radius: 55px 55px 0 0;
     }
-    .product-name {
-      margin-bottom: 10px;
-    }
-    .product-price {
-      margin-bottom: 10px;
-    }
-    .product-addtocart {
-      cursor: pointer;
-      color: $terciarycolor;
-      font-size: 25px;
-      transition: all 300ms ease-in-out;
-      &:hover {
-        color: $secondarycolor;
-        transform: scale(1.2);
+    .footer-product {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 80%;
+      .footer-text {
+        display: flex;
+        flex-direction: column;
+        .product-name {
+          margin-bottom: 10px;
+        }
+        .product-price {
+          margin-bottom: 10px;
+          color: $maincolor;
+          font-weight: bold;
+        }
+      }
+      .product-addtocart {
+        cursor: pointer;
+        color: $terciarycolor;
+        font-size: 35px;
+        transition: all 300ms ease-in-out;
+        &:hover {
+          color: $secondarycolor;
+          transform: scale(1.2);
+        }
       }
     }
   }
