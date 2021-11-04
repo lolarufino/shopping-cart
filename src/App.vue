@@ -31,5 +31,6 @@ a {
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
+  background-color: #efe7dfff;
 }
 </style>
