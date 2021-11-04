@@ -43,8 +43,8 @@ export default defineComponent({
   justify-content: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  border-bottom: 1px dotted $terciarycolor;
-  background-color: #eee;
+  border-bottom: 2px dotted $terciarycolor;
+  background-color: white;
   .logo-text {
     color: $maincolor;
     font-family: $titlefont;
@@ -80,7 +80,7 @@ export default defineComponent({
         font-size: 20px;
         margin-left: 10px;
         margin-right: 30px;
-        color: black;
+        color: gray;
       }
     }
   }
