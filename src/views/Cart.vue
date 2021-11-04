@@ -14,10 +14,17 @@
               @click="incrementAmount(product)"
             />
             <input
-              type="number"
+              type="text"
+              pattern="\d+"
               class="input"
-              :value="product.amount"
-              @input="updateValue(product)"
+              :value="
+                product.amount === 0
+                  ? deleteProductFromCart(product)
+                  : product.amount
+              "
+              @input="product.amount = $event.target.value"
+              min="0"
+              :max="product.stock"
             />
             <font-awesome-icon
               class="product-addtocart"
