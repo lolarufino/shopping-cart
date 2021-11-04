@@ -17,7 +17,7 @@
               type="number"
               class="input"
               :value="product.amount"
-              @input="updateValue($event.target, { name: 'Lola' })"
+              @input="updateValue(product)"
             />
             <font-awesome-icon
               class="product-addtocart"
@@ -29,7 +29,7 @@
         <font-awesome-icon
           class="product-delete"
           :icon="['fas', 'trash-alt']"
-          @click=""
+          @click="deleteProductFromCart(product)"
         />
       </div>
       <p>Total: {{ updateFinalPrice() }} €</p>
@@ -47,7 +47,12 @@ export default defineComponent({
     ...mapState(["productsInCart"]),
   },
   methods: {
-    ...mapActions(["incrementAmount", "decrementAmount", "updateValue"]),
+    ...mapActions([
+      "incrementAmount",
+      "decrementAmount",
+      "updateValue",
+      "deleteProductFromCart",
+    ]),
     updateFinalPrice() {
       return this.productsInCart.reduce(
         (acc: number, { price, amount }: { price: number; amount: number }) => {
