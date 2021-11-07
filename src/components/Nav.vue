@@ -2,8 +2,8 @@
   <nav class="nav-wrapper">
     <router-link to="/">
       <h1 class="logo-text">
-        Tea
-        <font-awesome-icon class="logo-fa" :icon="['fas', 'mug-hot']" /> Shop
+        E
+        <font-awesome-icon class="logo-fa" :icon="['fas', 'bolt']" /> Shop
       </h1>
     </router-link>
     <div class="container">
@@ -43,7 +43,7 @@ export default defineComponent({
   justify-content: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  border-bottom: 2px dotted $terciarycolor;
+  border-bottom: 2px solid $terciarycolor;
   background-color: white;
   .logo-text {
     color: $maincolor;
