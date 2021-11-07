@@ -6,7 +6,7 @@
         <div class="footer-product">
           <div class="footer-text">
             <p class="product-name">{{ product.name }}</p>
-            <span class="product-price">{{ product.price }} €/100g</span>
+            <span class="product-price">{{ product.price }} €</span>
           </div>
           <font-awesome-icon
             class="product-addtocart"
@@ -40,21 +40,21 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #efe7dfff;
+  background-color: lightgray;
   color: gray;
   .product {
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: $bodyfont;
     font-size: 20px;
-    margin: 30px;
-    border: 2px dotted $terciarycolor;
+    margin: 50px 95px 50px 95px;
     background-color: white;
     padding-bottom: 20px;
-    border-radius: 55px;
+    border-radius: 35px;
     .product-image {
-      width: 330px;
+      width: 400px;
       margin-bottom: 10px;
       border-radius: 55px 55px 0 0;
     }
@@ -77,7 +77,7 @@ export default defineComponent({
       }
       .product-addtocart {
         cursor: pointer;
-        color: $terciarycolor;
+        color: $maincolor;
         font-size: 35px;
         transition: all 300ms ease-in-out;
         &:hover {
