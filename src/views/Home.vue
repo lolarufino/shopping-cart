@@ -32,15 +32,15 @@ export default defineComponent({
 @import "../styles/variables.scss";
 .home-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: lightgray;
-  height: 70vh;
   .text {
     font-family: $bodyfont;
     font-size: 20px;
     text-align: center;
-    padding: 60px;
+    padding: 40px;
     color: gray;
     .button {
       font-family: $titlefont;
@@ -61,7 +61,14 @@ export default defineComponent({
   }
   .home-image {
     width: 50%;
+    margin-top: 20px;
     align-self: center;
+  }
+}
+@media screen and (min-width: 720px) {
+  .home-wrapper {
+    display: flex;
+    flex-direction: row;
   }
 }
 .fade-enter-active,

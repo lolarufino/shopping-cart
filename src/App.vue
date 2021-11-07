@@ -27,7 +27,7 @@ a {
   text-decoration: none;
 }
 .wrapper {
-  height: 100vh;
   background-color: lightgray;
+  height: 100vh;
 }
 </style>

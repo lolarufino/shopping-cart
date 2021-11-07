@@ -3,7 +3,7 @@
     <div v-if="productsInCart.length > 0" class="cart-container">
       <div v-for="product in productsInCart" class="product">
         <img class="product-image" :src="product.image" :alt="product.id" />
-        <p>{{ product.name }}</p>
+        <p class="product-name">{{ product.name }}</p>
         <span class="product-price">{{ product.price }}€</span>
         <div class="amount">
           <p>
@@ -89,7 +89,6 @@ export default defineComponent({
 <style lang="scss">
 @import "../styles/variables";
 .cart-container {
-  height: 70vh;
   font-family: $bodyfont;
   font-size: 20px;
   display: flex;
@@ -99,20 +98,29 @@ export default defineComponent({
   color: gray;
   .product {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 70vw;
     background-color: white;
     border-radius: 35px;
     padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     .product-image {
       width: 150px;
+      margin-bottom: 20px;
+    }
+    .product-name {
+      margin-bottom: 20px;
     }
     .product-price {
       font-family: $titlefont;
+      margin-bottom: 20px;
     }
     .amount {
       display: flex;
+      margin-bottom: 20px;
       .product-addtocart {
         cursor: pointer;
         color: $terciarycolor;
@@ -159,6 +167,29 @@ export default defineComponent({
     transition: all 300ms ease-in-out;
     &:hover {
       background-color: $secondarycolor;
+    }
+  }
+}
+@media screen and (min-width: 900px) {
+  .cart-container {
+    height: 70vh;
+    .product {
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+      margin-bottom: 0;
+      .product-image {
+        margin-bottom: 0;
+      }
+      .product-name {
+        margin-bottom: 0;
+      }
+      .product-price {
+        margin-bottom: 0;
+      }
+      .amount {
+        margin-bottom: 0;
+      }
     }
   }
 }
