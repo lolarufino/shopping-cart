@@ -1,17 +1,20 @@
 <template>
   <transition name="fade" mode="out-in" appear>
     <div class="home-wrapper">
-      <p class="text">
-        At Tea Shop we have been dedicated body and soul to the world of tea
-        since 1990. Discover in our online tea shop the best selection of online
-        tea where you will find Teas, Rooibos, Infusions that will make you fall
-        in love.
-      </p>
       <img
         class="home-image"
-        src="https://i.ibb.co/sRbdSpZ/animation-640-kvl3dijl.gif"
-        alt="Teapot gif"
+        src="https://i.ibb.co/zJsjwP6/i-Macresidez.png"
+        alt="iMac illustration"
       />
+      <p class="text">
+        Buy electronics online at best prices in Spain. Shop from a huge range
+        of electronic products such as TVs, laptops, cameras, video games &
+        more. Created in Spain October 2021 under the name of E Shop the company
+        was immediately known on the Spanish market of distribution.<br /><br />
+        <router-link to="/products">
+          <button class="button">Start shopping now!</button>
+        </router-link>
+      </p>
     </div>
   </transition>
 </template>
@@ -29,19 +32,35 @@ export default defineComponent({
 @import "../styles/variables.scss";
 .home-wrapper {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #efe7dfff;
+  background-color: lightgray;
+  height: 70vh;
   .text {
     font-family: $bodyfont;
     font-size: 20px;
     text-align: center;
     padding: 60px;
     color: gray;
+    .button {
+      font-family: $titlefont;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 20px;
+      border: none;
+      color: white;
+      background-color: $maincolor;
+      border-radius: 10px;
+      text-shadow: 1px 1px 1px lightgray;
+      transition: all 300ms ease-in-out;
+      &:hover {
+        background-color: $secondarycolor;
+      }
+    }
   }
   .home-image {
-    width: 450px;
+    width: 50%;
     align-self: center;
   }
 }
