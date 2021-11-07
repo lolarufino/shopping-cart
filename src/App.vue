@@ -27,10 +27,7 @@ a {
   text-decoration: none;
 }
 .wrapper {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
-  justify-content: space-between;
-  background-color: #efe7dfff;
+  background-color: lightgray;
 }
 </style>

@@ -3,15 +3,15 @@
     <div v-if="productsInCart.length > 0" class="cart-container">
       <div v-for="product in productsInCart" class="product">
         <img class="product-image" :src="product.image" :alt="product.id" />
-        <p class="product-name">{{ product.name }}</p>
-        <span>{{ product.price }}€/100g</span>
+        <p>{{ product.name }}</p>
+        <span class="product-price">{{ product.price }}€</span>
         <div class="amount">
           <p>
             Quantity:
             <font-awesome-icon
               class="product-addtocart"
-              :icon="['fas', 'plus']"
-              @click="incrementAmount(product)"
+              :icon="['fas', 'minus']"
+              @click="decrementAmount(product)"
             />
             <input
               type="text"
@@ -28,8 +28,8 @@
             />
             <font-awesome-icon
               class="product-addtocart"
-              :icon="['fas', 'minus']"
-              @click="decrementAmount(product)"
+              :icon="['fas', 'plus']"
+              @click="incrementAmount(product)"
             />
           </p>
         </div>
@@ -39,13 +39,18 @@
           @click="deleteProductFromCart(product)"
         />
       </div>
-      <p>Total: {{ updateFinalPrice() }} €</p>
+      <p class="product">
+        Total: <span class="product-price">{{ updateFinalPrice() }} €</span>
+      </p>
     </div>
     <div v-else class="cart-container">
       <p>Your cart is empty</p>
+      <router-link to="/products">
+        <button class="button">Start shopping now!</button>
+      </router-link>
       <img
         class="empty-image"
-        src="https://i.ibb.co/brrFbPx/animation-640-kvl3lwfx.gif"
+        src="https://i.ibb.co/y0Krbtw/Card-Reader.png"
         alt="Empty cart"
       />
     </div>
@@ -91,15 +96,20 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: #efe7dfff;
   color: gray;
   .product {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 70vw;
+    background-color: white;
+    border-radius: 35px;
+    padding: 20px;
     .product-image {
       width: 150px;
+    }
+    .product-price {
+      font-family: $titlefont;
     }
     .amount {
       display: flex;
@@ -134,6 +144,22 @@ export default defineComponent({
   }
   .empty-image {
     width: 30vw;
+  }
+  .button {
+    font-family: $titlefont;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 20px;
+    border: none;
+    color: white;
+    background-color: $maincolor;
+    border-radius: 10px;
+    text-shadow: 1px 1px 1px lightgray;
+    transition: all 300ms ease-in-out;
+    &:hover {
+      background-color: $secondarycolor;
+    }
   }
 }
 .fade-enter-active,
