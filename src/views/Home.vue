@@ -37,6 +37,7 @@ export default defineComponent({
   align-items: center;
   background-color: lightgray;
   margin-top: 10px;
+  min-height: 70vh;
   .text {
     font-family: $bodyfont;
     font-size: 20px;

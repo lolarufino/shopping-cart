@@ -97,6 +97,7 @@ export default defineComponent({
   justify-content: space-around;
   color: gray;
   background-color: lightgray;
+  min-height: 70vh;
   .product {
     display: flex;
     flex-direction: column;
