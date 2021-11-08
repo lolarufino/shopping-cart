@@ -39,7 +39,7 @@
           @click="deleteProductFromCart(product)"
         />
       </div>
-      <p class="product">
+      <p class="total">
         Total: <span class="product-price">{{ updateFinalPrice() }} €</span>
       </p>
     </div>
@@ -96,6 +96,7 @@ export default defineComponent({
   align-items: center;
   justify-content: space-around;
   color: gray;
+  background-color: lightgray;
   .product {
     display: flex;
     flex-direction: column;
@@ -150,6 +151,17 @@ export default defineComponent({
       }
     }
   }
+  .total {
+    font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    .product-price {
+      margin-left: 10px;
+      color: white;
+      font-family: $titlefont;
+      text-shadow: 1px 1px 3px lightgray;
+    }
+  }
   .empty-image {
     width: 30vw;
   }
@@ -172,7 +184,6 @@ export default defineComponent({
 }
 @media screen and (min-width: 900px) {
   .cart-container {
-    height: 70vh;
     .product {
       display: flex;
       flex-direction: row;

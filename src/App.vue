@@ -19,6 +19,7 @@ export default defineComponent({
 
 
 <style lang="scss">
+@import "./styles/variables";
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +29,6 @@ a {
 }
 .wrapper {
   background-color: lightgray;
-  height: 100vh;
+  min-height: 100vh;
 }
 </style>

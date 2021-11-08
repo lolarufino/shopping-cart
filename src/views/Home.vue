@@ -36,6 +36,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   background-color: lightgray;
+  margin-top: 10px;
   .text {
     font-family: $bodyfont;
     font-size: 20px;
