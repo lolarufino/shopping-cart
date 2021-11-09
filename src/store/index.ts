@@ -1,9 +1,11 @@
-import { createStore } from 'vuex';
+import { createStore, ActionContext } from 'vuex';
 import { useToast } from 'vue-toastification';
+import {State, Product} from '../types/interfaces';
+import mutations from './mutations';
 
 const toast = useToast()
 
-export default createStore<State>({
+export default createStore({
   state: {
     products: [
       {
@@ -73,36 +75,19 @@ export default createStore<State>({
     ],
     productsInCart: []
   },
-  mutations: {
-    updateCart(state, payload){
-      if(state.productsInCart.includes(payload)){
-        payload.amount++
-      }else{
-        state.productsInCart.push(payload);
-      }
-    },
-    incrementProductAmount(state,payload){
-      state.productsInCart.filter((product: any) => product === payload && payload.amount < product.stock ? product.amount++ : null)
-    },
-    decrementProductAmount(state,payload){
-      state.productsInCart.filter((product: any) => product === payload && payload.amount >= 1 ? product.amount-- : null)
-    },
-    deleteProduct(state, payload){
-      state.productsInCart = state.productsInCart.filter((product: any) => product.id !== payload.id)
-    }
-  },
+  mutations,
   actions: {
-    addProductToCart({commit},product: object){
+    addProductToCart({commit}:ActionContext<State, State>,product: Product){
       toast.success("Product added to cart!");
       commit ("updateCart", product)
     },
-    incrementAmount({commit},product: object){
+    incrementAmount({commit}:ActionContext<State, State>,product: Product){
       commit ("incrementProductAmount", product)
     },
-    decrementAmount({commit},product: object){
+    decrementAmount({commit}:ActionContext<State, State>,product: Product){
       commit ("decrementProductAmount", product)
     },
-    deleteProductFromCart({commit}, product:any){
+    deleteProductFromCart({commit}:ActionContext<State, State>, product: Product){
       commit("deleteProduct", product)
     }
   },
@@ -110,7 +95,4 @@ export default createStore<State>({
   },
 });
 
-export interface State {
-  products: Array<object>
-  productsInCart: Array<object>
-}
+
