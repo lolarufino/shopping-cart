@@ -1,4 +1,4 @@
-const mockedState = {
+const state = {
   products: [
     {
       id: 1,
@@ -68,4 +68,4 @@ const mockedState = {
   productsInCart: [],
 };
 
-export default mockedState;
+export default state;
